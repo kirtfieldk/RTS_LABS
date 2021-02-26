@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #61dafb;
+}
