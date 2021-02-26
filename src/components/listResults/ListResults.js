@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 /* Here we list all results retrieved from our API */
 /* Results come in as an object with an hits: [] */
 const ListResults = ({ searchResults }) => {
+  /* We will track the user history of searches and also make them research the term */
   const renderResults = () => {
     return searchResults.hits.map((el, index) => {
       return (

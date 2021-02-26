@@ -40,3 +40,11 @@ Then run,
 ```
 
 to start the instance on port `3000`.
+
+```linux
+    docker build -t rts .
+
+    docker run -p 3000:3000 --name rts rts
+```
+
+Running this application in a `docker` container runs the production instance.
