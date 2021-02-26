@@ -1,6 +1,6 @@
 ### Welcome RTS Labs
 
-This is a `React/Redux` application that queries from the Hacker News Algolia API. The `store` only has two persistent data values and two `actions`.
+This is a `React/Redux` application that queries from the Hacker News Algolia API. The `store` only has two persistent data values and two `actions`. All results and search histories are `links`.
 
 ##### Reducers
 
