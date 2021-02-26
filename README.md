@@ -41,6 +41,8 @@ Then run,
 
 to start the instance on port `3000`.
 
+## Dockerfile
+
 ```linux
     docker build -t rts .
 

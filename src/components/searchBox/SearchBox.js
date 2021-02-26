@@ -10,6 +10,7 @@ const SearchBox = ({ addSearchResult, search }) => {
     */
     addSearchResult(searchTerm);
     search(searchTerm);
+    /* Reset the search term so input field is blank */
     setSearchTerm('');
   };
   return (

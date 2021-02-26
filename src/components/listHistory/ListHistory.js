@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../action';
 /* We will get search history from reducers */
 const ListHistory = ({ searchHistory, search }) => {
-  /* We will render the list of search results, an array of strings */
+  /* We will track the user history of searches and also make them research the term */
   const renderList = () => {
     return searchHistory.map((el, index) => {
       return (
@@ -20,6 +20,7 @@ const ListHistory = ({ searchHistory, search }) => {
     </div>
   );
 };
+/* grab searchHistory from store */
 const mapStateToProps = ({ searchHistory }) => {
   return { searchHistory };
 };

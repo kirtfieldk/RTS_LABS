@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 /* Here we list all results retrieved from our API */
 /* Results come in as an object with an hits: [] */
 const ListResults = ({ searchResults }) => {
-  /* We will track the user history of searches and also make them research the term */
+  /* In some cases our elements have empty/null values for title, in that case we will return story_title */
   const renderResults = () => {
+    console.log(searchResults);
     return searchResults.hits.map((el, index) => {
       return (
         <div key={index}>
           <a href={el.url} target="#">
-            {el.title}
+            {el.title
+              ? `Title: ${el.title}`
+              : `Story Title: ${el.story_title}`}
           </a>
         </div>
       );
@@ -23,6 +26,7 @@ const ListResults = ({ searchResults }) => {
     </div>
   );
 };
+/* grab searchResults from store */
 const mapStateToProps = ({ searchResults }) => {
   return { searchResults };
 };
