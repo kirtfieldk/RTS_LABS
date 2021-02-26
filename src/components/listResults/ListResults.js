@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 const ListResults = ({ searchResults }) => {
   /* In some cases our elements have empty/null values for title, in that case we will return story_title */
   const renderResults = () => {
-    console.log(searchResults);
     return searchResults.hits.map((el, index) => {
       return (
         <div key={index}>
