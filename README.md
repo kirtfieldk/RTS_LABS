@@ -1,6 +1,6 @@
 ### Welcome RTS Labs
 
-This is a `React/Redux` application that queries from the Hacker News Algolia API. The `store` only has three persistent data values and three `actions`. All results and search histories are `links` if able. Strong use of `axios` and its ability to set perams. the utility function
+This is a `React/Redux` application that queries from the Hacker News Algolia API. The `store` only has three persistent data values and three `actions`. All results and search histories are `links` if able. Strong use of `axios` and its ability to set perams. The utility function
 `structureQuery` create a valid query without having to repeat the logic in many places of app.
 
 `axios.get(URL, {params: {...}})`
@@ -9,7 +9,7 @@ This is a `React/Redux` application that queries from the Hacker News Algolia AP
 
 ```javascript
 {
-     searchHistory,
+  searchHistory,
   searchResults,
   currentQuery,
 }
