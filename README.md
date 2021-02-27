@@ -1,25 +1,38 @@
 ### Welcome RTS Labs
 
-This is a `React/Redux` application that queries from the Hacker News Algolia API. The `store` only has two persistent data values and two `actions`. All results and search histories are `links`.
+This is a `React/Redux` application that queries from the Hacker News Algolia API. The `store` only has three persistent data values and three `actions`. All results and search histories are `links` if able. Strong use of `axios` and its ability to set perams. the utility function
+`structureQuery` create a valid query without having to repeat the logic in many places of app.
+
+`axios.get(URL, {params: {...}})`
 
 ##### Reducers
 
 ```javascript
 {
-    searchHistory,
-    searchResults,
+     searchHistory,
+  searchResults,
+  currentQuery,
 }
 ```
 
 ##### Actions
 
 ```javascript
-export const addSearchResult = (search) => (dispatch) => {
-  dispatch({ type: SEARCH_HISTORY, payload: search });
+/* Actions that allow us to persist values accross the app */
+export const addSearchResult = (search, tag = '') => (dispatch) => {
+  dispatch({
+    type: SEARCH_HISTORY,
+    payload: { search, tag },
+  });
 };
-export const search = (search) => async (dispatch) => {
-  const result = await axios.get(`${API_ROUTE}${search}`);
-  dispatch({ type: SEARCH, payload: result.data });
+/* Query api via search term and tag, we need default values  */
+export const search = (search, tags = '', page = 1) => async (
+  dispatch,
+) => {
+  const result = await axios.get(API_ROUTE, {
+    params: { tags, query: search },
+  });
+  dispatch({ type: SEARCH, payload: result.data, page });
 };
 ```
 

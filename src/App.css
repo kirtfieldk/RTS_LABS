@@ -41,3 +41,12 @@
   text-decoration: underline;
   color: #61dafb;
 }
+.tag {
+  cursor: pointer;
+}
+.tag:hover {
+  background-color: beige;
+}
+.selected_tag {
+  background-color: beige;
+}
