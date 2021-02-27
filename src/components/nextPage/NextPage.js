@@ -6,6 +6,7 @@ import { structureQuery } from '../../util/structureQuery';
 const NextPage = ({ currentQuery, currentApiQuery, search }) => {
   const [page, setPage] = useState(1);
   //Called everytime we increase the page count or decrease it
+  // We query the current query but the next or prev page
   useEffect(() => {
     if (currentQuery && currentQuery.reset) setPage(2);
     const executQuery = () => {
@@ -36,6 +37,7 @@ const NextPage = ({ currentQuery, currentApiQuery, search }) => {
     </div>
   );
 };
+/* Grab currentQuery from store */
 const mapStateToProps = ({ currentQuery }) => {
   return { currentQuery };
 };

@@ -9,9 +9,7 @@ const ListResults = ({ searchResults }) => {
       return (
         <div key={index}>
           <a href={el.url} target="#">
-            {el.title
-              ? `Title: ${el.title}`
-              : `Story Title: ${el.story_title}`}
+            {el.title ? el.title : el.story_title}
           </a>
         </div>
       );
