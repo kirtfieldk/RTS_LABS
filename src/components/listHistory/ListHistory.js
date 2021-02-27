@@ -20,6 +20,11 @@ const ListHistory = ({ searchHistory, search, currentQuery }) => {
       );
     });
   };
+  /* if tag is present, render it, else do not */
+  const setTag = () => {
+    if (currentQuery.tags) return `&tag=${currentQuery.tags}`;
+    else return '';
+  };
   return (
     <div>
       <h1>Search History</h1>
@@ -27,7 +32,9 @@ const ListHistory = ({ searchHistory, search, currentQuery }) => {
       <h4>
         Current Query:
         {currentQuery
-          ? `search=${currentQuery.query}&tag=${currentQuery.tags}&page=${currentQuery.page}`
+          ? `search=${currentQuery.query}${setTag()}&page=${
+              currentQuery.page
+            }`
           : 'None'}
       </h4>
     </div>

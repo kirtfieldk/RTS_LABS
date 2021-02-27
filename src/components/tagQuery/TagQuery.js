@@ -37,7 +37,7 @@ const TagQuery = ({ setTag, reset }) => {
   };
   return (
     <div>
-      Tags?
+      Tag?
       <div>{renderTags()}</div>
     </div>
   );
