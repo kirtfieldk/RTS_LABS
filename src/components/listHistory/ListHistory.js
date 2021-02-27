@@ -3,7 +3,25 @@ import { connect } from 'react-redux';
 import * as actions from '../../action';
 import { structureQuery } from '../../util/structureQuery';
 /* We will get search history from reducers */
-const ListHistory = ({ searchHistory, search, currentQuery }) => {
+const ListHistory = ({
+  searchHistory,
+  search,
+  currentQuery,
+  currentApiQuery,
+}) => {
+  const renderCurrentQuery = () => {
+    if (currentQuery) {
+      return `search=${currentQuery.query}${setTag()}&page=${
+        currentQuery.page
+      }`;
+    }
+    return 'empty';
+  };
+  /* When the user clicks the history link we will dynamically update the current query */
+  const onClick = (query) => {
+    currentApiQuery(query);
+    search(query);
+  };
   /* We will track the user history of searches and also make them re-search the term */
   /* The search history is an array of {query: '', tag: ''} */
   const renderList = () => {
@@ -13,7 +31,7 @@ const ListHistory = ({ searchHistory, search, currentQuery }) => {
         <div
           key={index}
           className="link"
-          onClick={() => search(query)}
+          onClick={() => onClick(query)}
         >
           Search:{el.query}, Tag: {el.tags}
         </div>
@@ -29,14 +47,7 @@ const ListHistory = ({ searchHistory, search, currentQuery }) => {
     <div>
       <h1>Search History</h1>
       {renderList()}
-      <h4>
-        Current Query:
-        {currentQuery
-          ? `search=${currentQuery.query}${setTag()}&page=${
-              currentQuery.page
-            }`
-          : 'None'}
-      </h4>
+      <h4>Current Query: {renderCurrentQuery()}</h4>
     </div>
   );
 };
