@@ -25,6 +25,5 @@ export const search = (query) => async (dispatch) => {
 };
 /* Simple action to keep track of current query */
 export const currentApiQuery = (query) => (dispatch) => {
-  console.log('called');
   dispatch({ type: CURRENT_QUERY, payload: query });
 };
