@@ -16,8 +16,8 @@ const NextPage = ({ currentQuery, currentApiQuery, search }) => {
           currentQuery.tags,
           page,
         );
-        search(query);
         currentApiQuery(query);
+        search(query);
       }
     };
     executQuery();

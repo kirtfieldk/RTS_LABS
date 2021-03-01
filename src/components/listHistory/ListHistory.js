@@ -18,8 +18,9 @@ const ListHistory = ({
     return 'empty';
   };
   /* When the user clicks the history link we will dynamically update the current query */
+  /* We set the current query with reset: true our page pagination will reset  */
   const onClick = (query) => {
-    currentApiQuery(query);
+    currentApiQuery({ ...query, reset: true });
     search(query);
   };
   /* We will track the user history of searches and also make them re-search the term */

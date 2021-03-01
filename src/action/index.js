@@ -18,6 +18,7 @@ export const addSearchResult = (query) => (dispatch) => {
 };
 /* Query api via search term and tag, we need default values  */
 export const search = (query) => async (dispatch) => {
+  /* Need to dispatch this query as current one so we can always reference! */
   const result = await axios.get(API_ROUTE, {
     params: query,
   });
